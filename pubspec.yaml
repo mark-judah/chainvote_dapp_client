@@ -1,0 +1,43 @@
+name: election_app
+description: A new Flutter project.
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+ 
+
+  cupertino_icons: ^1.0.2
+  bloc: ^8.1.2
+  flutter_bloc:
+  flutter_spinkit: ^5.2.0
+  numpad_layout: ^0.0.3
+  flutter_secure_storage: any
+  # for linux flutter_secure_storage needs libsecret-1-dev and libjsoncpp-dev on your machine to
+  # build the project, and libsecret-1-0 and libjsoncpp1 to run the application
+ # (add it as a dependency after packaging your app).
+  twilio: ^0.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+flutter:
+     uses-material-design: true
+     assets:
+      - assets/images/logo.png
+      - assets/images/uhuru.jpg
+      - assets/images/raila.jpeg
+      - assets/images/ruto.jpeg
