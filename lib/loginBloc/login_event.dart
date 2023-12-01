@@ -16,3 +16,7 @@ class ProcessOTPEvent extends LoginEvent{
   String otp;
   ProcessOTPEvent(this.otp);
 }
+
+class NavigateToConfigurationsLoginEvent extends LoginEvent{
+
+}

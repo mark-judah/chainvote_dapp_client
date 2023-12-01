@@ -21,14 +21,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<EnterMobileNumberEvent>(enterMobileNumberEvent);
     on<EnterOTPEvent>(enterOTPEvent);
     on<ProcessOTPEvent>(processOTPEvent);
-
+    on<NavigateToConfigurationsLoginEvent>(navigateToConfigurationsLoginPage);
   }
 
-  FutureOr<void> enterMobileNumberEvent(EnterMobileNumberEvent event, Emitter<LoginState> emit) {
+  FutureOr<void> enterMobileNumberEvent(
+      EnterMobileNumberEvent event, Emitter<LoginState> emit) {
     emit(EnterMobileNumberState());
   }
 
-  Future<FutureOr<void>> enterOTPEvent(EnterOTPEvent event, Emitter<LoginState> emit) async {
+  Future<FutureOr<void>> enterOTPEvent(
+      EnterOTPEvent event, Emitter<LoginState> emit) async {
     emit(LoadingState());
     //generate and store otp locally
     String otp = Random().nextInt(999999).toString().padLeft(6, '0');
@@ -38,18 +40,25 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         accountSid: accountSid,
         authToken: authToken,
         twilioNumber: twilioNumber);
-    twilio.messages.sendMessage("+254708573898",otp);
+    twilio.messages.sendMessage("+254708573898", otp);
     emit(EnterOTPState());
-
   }
 
-  Future<FutureOr<void>> processOTPEvent(ProcessOTPEvent event, Emitter<LoginState> emit) async {
+  Future<FutureOr<void>> processOTPEvent(
+      ProcessOTPEvent event, Emitter<LoginState> emit) async {
     emit(LoadingState());
     //check if enteredOtp matches the stored version
     String? storedOTP = await storage.read(key: "otp");
-    if(storedOTP==event.otp){
-      print("OTP: "+storedOTP!);
+    if (storedOTP == event.otp) {
+      print("OTP: " + storedOTP!);
       emit(NavigateToElectionTypeState());
     }
+  }
+
+ 
+
+  FutureOr<void> navigateToConfigurationsLoginPage(NavigateToConfigurationsLoginEvent event, Emitter<LoginState> emit) {
+    emit(LoadingState());
+    emit(NavigateToConfigLoginActionState());
   }
 }

@@ -22,6 +22,11 @@ dependencies:
   # build the project, and libsecret-1-0 and libjsoncpp1 to run the application
  # (add it as a dependency after packaging your app).
   twilio: ^0.0.2
+  http: ^0.13.6
+  another_flushbar: ^1.12.30
+  dropdown_button2: ^2.3.9
+  device_info_plus: ^8.2.0
+  pointycastle: ^3.7.3
 
 dev_dependencies:
   flutter_test:
