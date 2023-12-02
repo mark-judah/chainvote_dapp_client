@@ -8,6 +8,8 @@ class EnterMobileNumberEvent extends LoginEvent{
 }
 
 class EnterOTPEvent extends LoginEvent{
+  String phone_number;
+  EnterOTPEvent(this.phone_number);
 
 }
 

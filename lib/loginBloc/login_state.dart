@@ -18,6 +18,7 @@ class EnterOTPState extends LoginState{
 }
 
 class NavigateToElectionTypeState extends LoginActionState{
+  
 }
 
 class NavigateToConfigLoginActionState extends LoginActionState{

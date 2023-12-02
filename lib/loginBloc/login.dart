@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:election_app/clientConfig/client_config_login.dart';
 import 'package:election_app/election_type.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,8 +15,8 @@ class Login extends StatefulWidget {
 }
 
 class _MyAppState extends State<Login> {
-  String mobileNumber = "";
-  String OTP = "";
+  List phone_number = [];
+  List otp = [];
 
   @override
   void initState() {
@@ -97,7 +98,7 @@ class _MyAppState extends State<Login> {
                                     decoration: TextDecoration.none),
                               ),
                               Text(
-                                mobileNumber,
+                                phone_number.join(),
                                 style: const TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
@@ -106,11 +107,10 @@ class _MyAppState extends State<Login> {
                               const SizedBox(
                                 height: 40,
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              Wrap(
+                                spacing: 50,
                                 children: [
                                   for (int number = 1; number <= 3; number++)
-                                  
                                     Container(
                                         width: 100.0,
                                         decoration: BoxDecoration(
@@ -118,57 +118,231 @@ class _MyAppState extends State<Login> {
                                           borderRadius:
                                               BorderRadius.circular(10.0),
                                         ),
-                                        child: MaterialButton(
-                                            child: Text(number.toString(),style: TextStyle(
-                                              fontSize: 30.0
-                                            ),),
-                                            textColor: Colors.black,
-                                            shape: RoundedRectangleBorder(
-                                              side: BorderSide(
-                                                color: Colors.black,
-                                                width: 1,
-                                                style: BorderStyle.solid
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(18.0),
-                                            ),
-                                            onPressed: () {
-                                            
-                                            })),
+                                        child: AspectRatio(
+                                            aspectRatio: 1,
+                                            child: MaterialButton(
+                                                textColor: Colors.black,
+                                                shape:
+                                                    const RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                      color: Colors.black,
+                                                      width: 1,
+                                                      style: BorderStyle.solid),
+                                                ),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    phone_number.add(number);
+                                                  });
+                                                },
+                                                child: Text(
+                                                  number.toString(),
+                                                  style: const TextStyle(
+                                                      fontSize: 30.0),
+                                                )))),
+                                ],
+
+                                /////////
+                              ),
+                              SizedBox(height: 50),
+                              Wrap(
+                                spacing: 50,
+
+                                children: [
+                                  for (int number = 4; number <= 6; number++)
+                                    Container(
+                                        width: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                        child: AspectRatio(
+                                            aspectRatio: 1,
+                                            child: MaterialButton(
+                                                textColor: Colors.black,
+                                                shape:
+                                                    const RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                      color: Colors.black,
+                                                      width: 1,
+                                                      style: BorderStyle.solid),
+                                                ),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    phone_number.add(number);
+                                                  });
+                                                },
+                                                child: Text(
+                                                  number.toString(),
+                                                  style: const TextStyle(
+                                                      fontSize: 30.0),
+                                                )))),
+                                ],
+
+                                /////////
+                              ),
+                              SizedBox(height: 50),
+                              Wrap(
+                                spacing: 50,
+                                children: [
+                                  for (int number = 7; number <= 9; number++)
+                                    Container(
+                                        width: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                        child: AspectRatio(
+                                            aspectRatio: 1,
+                                            child: MaterialButton(
+                                                textColor: Colors.black,
+                                                shape:
+                                                    const RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                      color: Colors.black,
+                                                      width: 1,
+                                                      style: BorderStyle.solid),
+                                                ),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    phone_number.add(number);
+                                                  });
+                                                },
+                                                child: Text(
+                                                  number.toString(),
+                                                  style: const TextStyle(
+                                                      fontSize: 30.0),
+                                                )))),
                                 ],
                               ),
-                              // NumPad(
-                              //   arabicDigits: false,
-                              //   onType: (value) {
-                              //     mobileNumber += value;
-                              //     setState(() {});
-                              //   },
-                              //   rightWidget: IconButton(
-                              //     icon: const Icon(Icons.backspace),
-                              //     onPressed: () {
-                              //       if (mobileNumber.isNotEmpty) {
-                              //         mobileNumber = mobileNumber.substring(
-                              //             0, mobileNumber.length - 1);
-                              //         setState(() {});
-                              //       }
-                              //     },
-                              //   ),
-                              // ),
+                              SizedBox(height: 50),
+                              Wrap(
+                                spacing: 50,
+                                children: [
+                                  for (int number = 1;
+                                      number <= 3;
+                                      number++) ...[
+                                    if (number == 1) ...[
+                                      Container(
+                                        width: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                      )
+                                    ],
+                                    if (number == 2) ...[
+                                      Container(
+                                          width: 100.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          child: AspectRatio(
+                                              aspectRatio: 1,
+                                              child: MaterialButton(
+                                                  textColor: Colors.black,
+                                                  shape:
+                                                      const RoundedRectangleBorder(
+                                                    side: BorderSide(
+                                                        color: Colors.black,
+                                                        width: 1,
+                                                        style:
+                                                            BorderStyle.solid),
+                                                  ),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      phone_number.add(0);
+                                                    });
+                                                  },
+                                                  child: Text(
+                                                    "0",
+                                                    style: const TextStyle(
+                                                        fontSize: 30.0),
+                                                  ))))
+                                    ],
+                                    if (number == 3) ...[
+                                      Container(
+                                          width: 100.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          child: AspectRatio(
+                                              aspectRatio: 1,
+                                              child: MaterialButton(
+                                                  textColor: Colors.black,
+                                                  shape:
+                                                      const RoundedRectangleBorder(
+                                                    side: BorderSide(
+                                                        color: Colors.black,
+                                                        width: 1,
+                                                        style:
+                                                            BorderStyle.solid),
+                                                  ),
+                                                  onPressed: () {
+                                                    if (phone_number.length > 0)
+                                                      setState(() {
+                                                        phone_number
+                                                            .removeLast();
+                                                      });
+                                                  },
+                                                  child: IconButton(
+                                                    icon: const Icon(
+                                                        Icons.backspace),
+                                                    onPressed: () {},
+                                                  ))))
+                                    ],
+                                  ]
+                                ],
+                              ),
                               const SizedBox(
                                 height: 40,
                               ),
-                              MaterialButton(
-                                  child: const Text("Next"),
-                                  color: Colors.black,
-                                  textColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                  ),
-                                  onPressed: () {
-                                    loginBloc.add(EnterOTPEvent());
-                                  }),
-                              // DrawerHeader(
-                              //     child: Image.asset("assets/images/logo.png")),
+                              Padding(
+                                  padding: EdgeInsets.only(right: 60),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      SizedBox(
+                                          width: 150, // <-- Your width
+                                          height: 75, // <-- Your height
+                                          child: MaterialButton(
+                                              color: Colors.black,
+                                              textColor: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(18.0),
+                                              ),
+                                              onPressed: () {
+                                                 if (phone_number.isEmpty) {
+                                                  Flushbar(
+                                                    title: "Missing field!",
+                                                    message:
+                                                        "Enter a phone number to proceed",
+                                                    duration:
+                                                        Duration(seconds: 3),
+                                                    flushbarPosition:
+                                                        FlushbarPosition.TOP,
+                                                  )..show(context);
+                                                }else{
+                                                loginBloc.add(EnterOTPEvent(
+                                                    phone_number.join()));
+                                                }
+                                                
+                                              },
+                                              child: IconButton(
+                                                icon: const Icon(
+                                                    Icons.arrow_forward,
+                                                    size: 30),
+                                                onPressed: () {},
+                                              )))
+                                    ],
+                                  ))
                             ])),
                       )));
             case EnterOTPState:
@@ -198,11 +372,12 @@ class _MyAppState extends State<Login> {
                                 "Enter the OTP sent to your SMS",
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 30,
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w900,
                                     decoration: TextDecoration.none),
                               ),
                               Text(
-                                OTP,
+                                otp.join(),
                                 style: const TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
@@ -211,35 +386,264 @@ class _MyAppState extends State<Login> {
                               const SizedBox(
                                 height: 40,
                               ),
-                              NumPad(
-                                arabicDigits: false,
-                                onType: (value) {
-                                  OTP += value;
-                                  setState(() {});
-                                },
-                                rightWidget: IconButton(
-                                  icon: const Icon(Icons.backspace),
-                                  onPressed: () {
-                                    if (OTP.isNotEmpty) {
-                                      OTP = OTP.substring(0, OTP.length - 1);
-                                      setState(() {});
-                                    }
-                                  },
-                                ),
+                              Wrap(
+                                spacing: 50,
+                                children: [
+                                  for (int number = 1; number <= 3; number++)
+                                    Container(
+                                        width: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                        child: AspectRatio(
+                                            aspectRatio: 1,
+                                            child: MaterialButton(
+                                                textColor: Colors.black,
+                                                shape:
+                                                    const RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                      color: Colors.black,
+                                                      width: 1,
+                                                      style: BorderStyle.solid),
+                                                ),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    otp.add(number);
+                                                  });
+                                                },
+                                                child: Text(
+                                                  number.toString(),
+                                                  style: const TextStyle(
+                                                      fontSize: 30.0),
+                                                )))),
+                                ],
+
+                                /////////
+                              ),
+                              SizedBox(height: 50),
+                              Wrap(
+                                spacing: 50,
+
+                                children: [
+                                  for (int number = 4; number <= 6; number++)
+                                    Container(
+                                        width: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                        child: AspectRatio(
+                                            aspectRatio: 1,
+                                            child: MaterialButton(
+                                                textColor: Colors.black,
+                                                shape:
+                                                    const RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                      color: Colors.black,
+                                                      width: 1,
+                                                      style: BorderStyle.solid),
+                                                ),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    otp.add(number);
+                                                  });
+                                                },
+                                                child: Text(
+                                                  number.toString(),
+                                                  style: const TextStyle(
+                                                      fontSize: 30.0),
+                                                )))),
+                                ],
+
+                                /////////
+                              ),
+                              SizedBox(height: 50),
+                              Wrap(
+                                spacing: 50,
+                                children: [
+                                  for (int number = 7; number <= 9; number++)
+                                    Container(
+                                        width: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                        child: AspectRatio(
+                                            aspectRatio: 1,
+                                            child: MaterialButton(
+                                                textColor: Colors.black,
+                                                shape:
+                                                    const RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                      color: Colors.black,
+                                                      width: 1,
+                                                      style: BorderStyle.solid),
+                                                ),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    otp.add(number);
+                                                  });
+                                                },
+                                                child: Text(
+                                                  number.toString(),
+                                                  style: const TextStyle(
+                                                      fontSize: 30.0),
+                                                )))),
+                                ],
+                              ),
+                              SizedBox(height: 50),
+                              Wrap(
+                                spacing: 50,
+                                children: [
+                                  for (int number = 1;
+                                      number <= 3;
+                                      number++) ...[
+                                    if (number == 1) ...[
+                                      Container(
+                                        width: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                      )
+                                    ],
+                                    if (number == 2) ...[
+                                      Container(
+                                          width: 100.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          child: AspectRatio(
+                                              aspectRatio: 1,
+                                              child: MaterialButton(
+                                                  textColor: Colors.black,
+                                                  shape:
+                                                      const RoundedRectangleBorder(
+                                                    side: BorderSide(
+                                                        color: Colors.black,
+                                                        width: 1,
+                                                        style:
+                                                            BorderStyle.solid),
+                                                  ),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      otp.add(0);
+                                                    });
+                                                  },
+                                                  child: Text(
+                                                    "0",
+                                                    style: const TextStyle(
+                                                        fontSize: 30.0),
+                                                  ))))
+                                    ],
+                                    if (number == 3) ...[
+                                      Container(
+                                          width: 100.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          child: AspectRatio(
+                                              aspectRatio: 1,
+                                              child: MaterialButton(
+                                                  textColor: Colors.black,
+                                                  shape:
+                                                      const RoundedRectangleBorder(
+                                                    side: BorderSide(
+                                                        color: Colors.black,
+                                                        width: 1,
+                                                        style:
+                                                            BorderStyle.solid),
+                                                  ),
+                                                  onPressed: () {
+                                                    if (phone_number.length > 1)
+                                                      setState(() {
+                                                        otp.removeLast();
+                                                      });
+                                                  },
+                                                  child: IconButton(
+                                                    icon: const Icon(
+                                                        Icons.backspace),
+                                                    onPressed: () {},
+                                                  ))))
+                                    ],
+                                  ]
+                                ],
                               ),
                               const SizedBox(
                                 height: 40,
                               ),
-                              MaterialButton(
-                                  child: const Text("Login"),
-                                  color: Colors.black,
-                                  textColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                  ),
-                                  onPressed: () {
-                                    loginBloc.add(ProcessOTPEvent(OTP));
-                                  }),
+                              Padding(
+                                  padding: EdgeInsets.only(right: 60, left: 60),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      SizedBox(
+                                          width: 150, // <-- Your width
+                                          height: 75, // <-- Your height
+                                          child: MaterialButton(
+                                              color: Colors.black,
+                                              textColor: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(18.0),
+                                              ),
+                                              onPressed: () {
+                                                loginBloc.add(
+                                                    EnterMobileNumberEvent());
+                                              },
+                                              child: IconButton(
+                                                icon: const Icon(
+                                                    Icons.arrow_back,
+                                                    size: 30),
+                                                onPressed: () {},
+                                              ))),
+                                      SizedBox(
+                                          width: 150, // <-- Your width
+                                          height: 75, // <-- Your height
+                                          child: MaterialButton(
+                                              color: Colors.black,
+                                              textColor: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(18.0),
+                                              ),
+                                              onPressed: () {
+                                                if (otp.isEmpty) {
+                                                  Flushbar(
+                                                    title: "Missing Field!",
+                                                    message:
+                                                        "Enter an OTP to proceed",
+                                                    duration:
+                                                        Duration(seconds: 3),
+                                                    flushbarPosition:
+                                                        FlushbarPosition.TOP,
+                                                  )..show(context);
+                                                }else{
+                                                  loginBloc.add(ProcessOTPEvent(
+                                                    otp.join()));
+                                                }
+
+                                                
+                                                
+                                              },
+                                              child: IconButton(
+                                                icon: const Icon(
+                                                    Icons.arrow_forward,
+                                                    size: 30),
+                                                onPressed: () {},
+                                              )))
+                                    ],
+                                  )),
                               // DrawerHeader(
                               //     child: Image.asset("assets/images/logo.png")),
                             ])),

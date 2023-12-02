@@ -26,7 +26,8 @@ dependencies:
   another_flushbar: ^1.12.30
   dropdown_button2: ^2.3.9
   device_info_plus: ^8.2.0
-  pointycastle: ^3.7.3
+  awesome_dialog: ^3.1.0
+
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +44,6 @@ flutter:
      uses-material-design: true
      assets:
       - assets/images/logo.png
-      - assets/images/uhuru.jpg
-      - assets/images/raila.jpeg
-      - assets/images/ruto.jpeg
+      - assets/images/kalonzo.jpg
+      - assets/images/ruto.png
+      - assets/images/rigathi.jpg

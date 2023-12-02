@@ -40,7 +40,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         accountSid: accountSid,
         authToken: authToken,
         twilioNumber: twilioNumber);
-    twilio.messages.sendMessage("+254708573898", otp);
+    twilio.messages.sendMessage("+254${event.phone_number}", otp);
     emit(EnterOTPState());
   }
 
