@@ -18,3 +18,4 @@ class SaveConfiguration extends ClientConfigEvent {
   SaveConfiguration(
       this.countyID,this.constituencyID,this.wardID,this.pollingStationID);
 }
+

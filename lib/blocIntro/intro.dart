@@ -32,7 +32,7 @@ class _MyAppState extends State<SplashPage> {
     //wait 3 seconds and call loaded success event
     Timer(const Duration(seconds: 5), () {
      // introBloc.add(NavigateToHomePageEvent());
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Login()));
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Login("")));
     });
   }
 

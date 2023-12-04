@@ -81,15 +81,13 @@ class ClientConfigBloc extends Bloc<ClientConfigEvent, ClientConfigState> {
     final linuxInfo = await deviceInfo.linuxInfo;
     String? deviceId = linuxInfo.machineId;
 
-  
-
-
     final json = jsonEncode({
+      "serial_number":deviceId,
       "county_id": int.parse(event.countyID),
       "constituency_id": int.parse(event.constituencyID),
       "ward_id": int.parse(event.wardID),
       "polling_station_id": int.parse(event.pollingStationID),
-      "serial_number": deviceId,
+      
     });
     final response = await http.post(url, headers: headers, body: json);
     if (kDebugMode) {
@@ -98,8 +96,20 @@ class ClientConfigBloc extends Bloc<ClientConfigEvent, ClientConfigState> {
       print('Status code: ${response.statusCode}');
       print('Body: ${response.body}');
     }
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       print("Device saved");
+      await storage.write(key: "county_id", value: event.countyID);
+      await storage.write(key: "constituency_id", value: event.constituencyID);
+      await storage.write(key: "ward_id", value: event.wardID);
+      await storage.write(key: "polling_station_id", value: event.pollingStationID);
+
+      emit(NavigateToHomeStateWithSuccess());
+    }else{
+            print("Device not saved");
+      emit(NavigateToHomeStateWithFailed());
     }
   }
+  
+ 
 }
+

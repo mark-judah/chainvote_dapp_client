@@ -17,6 +17,9 @@ class EnterMobileNumberState extends LoginState{
 class EnterOTPState extends LoginState{
 }
 
+class InvalidOTPState extends LoginState{
+}
+
 class NavigateToElectionTypeState extends LoginActionState{
   
 }

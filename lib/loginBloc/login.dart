@@ -10,6 +10,9 @@ import 'package:numpad_layout/widgets/numpad.dart';
 import 'login_bloc.dart';
 
 class Login extends StatefulWidget {
+  String ConfiguredClient;
+  Login(this.ConfiguredClient);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -20,6 +23,21 @@ class _MyAppState extends State<Login> {
 
   @override
   void initState() {
+    if(widget.ConfiguredClient=="ConfiguredClient"){
+       Future.delayed(Duration(milliseconds: 500), () {
+      showSuccessFlushbar(context); // Call a function to display the Flushbar
+    });
+    }
+    if(widget.ConfiguredClient=="ClientNotConfigured"){
+       Future.delayed(Duration(milliseconds: 500), () {
+      showFailedFlushbar(context); // Call a function to display the Flushbar
+    });
+    }
+     if(widget.ConfiguredClient=="VoteCast"){
+       Future.delayed(Duration(milliseconds: 500), () {
+      showVoteCastFlushbar(context); // Call a function to display the Flushbar
+    });
+    }
     loginBloc.add(EnterMobileNumberEvent());
     super.initState();
   }
@@ -42,6 +60,7 @@ class _MyAppState extends State<Login> {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => ClientConfigLogin()));
           }
+      
         },
         builder: (context, state) {
           switch (state.runtimeType) {
@@ -319,7 +338,7 @@ class _MyAppState extends State<Login> {
                                                     BorderRadius.circular(18.0),
                                               ),
                                               onPressed: () {
-                                                 if (phone_number.isEmpty) {
+                                                if (phone_number.isEmpty) {
                                                   Flushbar(
                                                     title: "Missing field!",
                                                     message:
@@ -329,11 +348,10 @@ class _MyAppState extends State<Login> {
                                                     flushbarPosition:
                                                         FlushbarPosition.TOP,
                                                   )..show(context);
-                                                }else{
-                                                loginBloc.add(EnterOTPEvent(
-                                                    phone_number.join()));
+                                                } else {
+                                                  loginBloc.add(EnterOTPEvent(
+                                                      phone_number.join()));
                                                 }
-                                                
                                               },
                                               child: IconButton(
                                                 icon: const Icon(
@@ -628,13 +646,10 @@ class _MyAppState extends State<Login> {
                                                     flushbarPosition:
                                                         FlushbarPosition.TOP,
                                                   )..show(context);
-                                                }else{
+                                                } else {
                                                   loginBloc.add(ProcessOTPEvent(
-                                                    otp.join()));
+                                                      otp.join()));
                                                 }
-
-                                                
-                                                
                                               },
                                               child: IconButton(
                                                 icon: const Icon(
@@ -653,5 +668,41 @@ class _MyAppState extends State<Login> {
               return const SizedBox();
           }
         });
+  }
+  
+  void showSuccessFlushbar(BuildContext context) {
+      Flushbar(
+                                                    title: "Configuration",
+                                                    message:
+                                                        "Client Configuration Saved",
+                                                    duration:
+                                                        Duration(seconds: 3),
+                                                    flushbarPosition:
+                                                        FlushbarPosition.TOP,
+                                                  )..show(context);
+  }
+
+    void showFailedFlushbar(BuildContext context) {
+      Flushbar(
+                                                    title: "Configuration",
+                                                    message:
+                                                        "Client configuration was not saved, the client is already configured",
+                                                    duration:
+                                                        Duration(seconds: 3),
+                                                    flushbarPosition:
+                                                        FlushbarPosition.TOP,
+                                                  )..show(context);
+  }
+  
+  void showVoteCastFlushbar(BuildContext context) {
+     Flushbar(
+                                                    title: "Vote Status",
+                                                    message:
+                                                        "Your vote was cast succesfully, an sms with your transaction id has been sent to your number",
+                                                    duration:
+                                                        Duration(seconds: 5),
+                                                    flushbarPosition:
+                                                        FlushbarPosition.TOP,
+                                                  )..show(context);
   }
 }

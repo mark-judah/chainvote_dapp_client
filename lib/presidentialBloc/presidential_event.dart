@@ -10,3 +10,7 @@ class NewVoteEvent extends PresidentialEvent{
   NewVoteEvent(this.candidate_id);
 
 }
+
+class FetchCandidates extends PresidentialEvent{
+
+}

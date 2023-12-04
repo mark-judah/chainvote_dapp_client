@@ -42,10 +42,14 @@ class _MyAppState extends State<ClientConfig> {
         //build when there is no action state
         buildWhen: (previous, current) => current is! ClientConfigActionState,
         listener: (context, state) {
-          // if (state is NavigateToConfigActionState) {
-          //   Navigator.of(context)
-          //       .push(MaterialPageRoute(builder: (context) => ClientConfiguration()));
-          // }
+          if (state is NavigateToHomeStateWithSuccess) {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Login("ConfiguredClient")));
+          }
+          if (state is NavigateToHomeStateWithFailed) {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Login("ClientNotConfigured")));
+          }
         },
         builder: (context, state) {
           switch (state.runtimeType) {
@@ -82,7 +86,7 @@ class _MyAppState extends State<ClientConfig> {
                             icon: Icon(Icons.arrow_back, color: Colors.white),
                             onPressed: () => Navigator.of(context).push(
                                 MaterialPageRoute(
-                                    builder: (context) => Login()))),
+                                    builder: (context) => Login("")))),
                       ),
                       resizeToAvoidBottomInset: false,
                       body: Center(

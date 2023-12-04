@@ -23,3 +23,7 @@ class NavigateToConfigActionState extends ClientConfigActionState {
 class Unauthorized extends ClientConfigState {}
 
 class Error extends ClientConfigState {}
+
+class NavigateToHomeStateWithSuccess extends ClientConfigActionState {}
+
+class NavigateToHomeStateWithFailed extends ClientConfigActionState{}

@@ -27,6 +27,8 @@ dependencies:
   dropdown_button2: ^2.3.9
   device_info_plus: ^8.2.0
   awesome_dialog: ^3.1.0
+  flutter_svg: ^2.0.5
+  crypto: ^3.0.3
 
 
 dev_dependencies:
@@ -47,3 +49,4 @@ flutter:
       - assets/images/kalonzo.jpg
       - assets/images/ruto.png
       - assets/images/rigathi.jpg
+      - assets/images/not_found.svg

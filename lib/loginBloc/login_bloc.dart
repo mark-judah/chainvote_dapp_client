@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
@@ -34,6 +35,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(LoadingState());
     //generate and store otp locally
     String otp = Random().nextInt(999999).toString().padLeft(6, '0');
+    print(otp);
     await storage.write(key: "otp", value: otp);
     //send otp to mobile number
     twilio = Twilio(
@@ -52,6 +54,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (storedOTP == event.otp) {
       print("OTP: " + storedOTP!);
       emit(NavigateToElectionTypeState());
+    }else{
+      print("OTP mismatch");
+      emit(InvalidOTPState());
+      var duration = const Duration(seconds: 5);
+      sleep(duration);
+      emit(EnterOTPState());
     }
   }
 

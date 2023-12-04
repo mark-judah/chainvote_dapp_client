@@ -81,7 +81,7 @@ class _MyAppState extends State<ClientConfigLogin> {
                             icon: Icon(Icons.arrow_back, color: Colors.white),
                             onPressed: () => Navigator.of(context).push(
                                 MaterialPageRoute(
-                                    builder: (context) => Login()))),
+                                    builder: (context) => Login("")))),
                       ),
                       resizeToAvoidBottomInset: false,
                       body: Center(
