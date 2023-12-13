@@ -50,7 +50,7 @@
 
 <p>Replace the placeholders in the Flutter project:</p>
 <ol>
-  <li>Open the file containing Twilio details (e.g., <em>login_bloc.dart</em>).</li>
+  <li>Open the file containing Twilio details (<em>login_bloc.dart</em>).</li>
   <li>Update the following lines with your Twilio credentials:</li>
 </ol>
 <pre><code>
@@ -60,7 +60,7 @@ final String twilioNumber = "YOUR_TWILIO_NUMBER";
 </code></pre>
 
 <h3>Linking to the Backend</h3>
-<p>This project works with https://github.com/mark-judah/voting_dapp_project, clone and follow the instructions in the readme. The default is 127.0.0.1:3500</p>
+<p>This project works with https://github.com/mark-judah/voting_dapp_project, clone and follow the instructions in the readme to setup and run the backend. The default is 127.0.0.1:3500</p>
 
 <p>Open the Flutter project and locate the <em>global_variables.dart</em> file.</p>
 
