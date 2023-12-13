@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ChainVote Frontend Client</title>
-</head>
+
 <body>
 
 <h1>ChainVote Frontend Client</h1>
