@@ -33,7 +33,7 @@
 <h3>Setting up Flutter Project</h3>
 <ol>
   <li>Clone the ChainVote Frontend repository:
-    <pre><code>git clone https://github.com/your-username/ChainVoteFrontend.git</code></pre>
+    <pre><code>git clone https://github.com/mark-judah/chainvote_dapp_client.git</code></pre>
   </li>
   <li>Navigate to the project directory:
     <pre><code>cd ChainVoteFrontend</code></pre>
