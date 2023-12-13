@@ -36,7 +36,7 @@
     <pre><code>git clone https://github.com/mark-judah/chainvote_dapp_client.git</code></pre>
   </li>
   <li>Navigate to the project directory:
-    <pre><code>cd ChainVoteFrontend</code></pre>
+    <pre><code>cd chainvote_dapp_client</code></pre>
   </li>
   <li>Run the Flutter project setup:
     <pre><code>flutter pub get</code></pre>
