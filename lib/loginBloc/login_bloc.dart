@@ -12,9 +12,9 @@ part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final storage = const FlutterSecureStorage();
-  final String accountSid = "AC2be90d382b1dd94267518c9411e23636";
-  final String authToken = "89e20b90f5fdd82af955556c70267ccd";
-  final String twilioNumber = "+12314032879";
+  final String accountSid = "";
+  final String authToken = "";
+  final String twilioNumber = "";
 
   late Twilio twilio;
 
