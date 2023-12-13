@@ -44,10 +44,30 @@
 </ol>
 
 <h3>Setting up Twilio for OTP</h3>
-<!-- Twilio setup details -->
+<p>Sign up for a Twilio account at <a href="https://www.twilio.com/console" target="_blank">Twilio Console</a>.</p>
+
+<p>Retrieve your Account SID and Auth Token from the Twilio dashboard.</p>
+
+<p>Replace the placeholders in the Flutter project:</p>
+<ol>
+  <li>Open the file containing Twilio details (e.g., <em>login_bloc.dart</em>).</li>
+  <li>Update the following lines with your Twilio credentials:</li>
+</ol>
+<pre><code>
+final String accountSid = "YOUR_ACCOUNT_SID";
+final String authToken = "YOUR_AUTH_TOKEN";
+final String twilioNumber = "YOUR_TWILIO_NUMBER";
+</code></pre>
 
 <h3>Linking to the Backend</h3>
-<!-- Backend URL configuration details -->
+<p>This project works with https://github.com/mark-judah/voting_dapp_project, clone and run the backend and add the ip and port. The default is 127.0.0.1:3500</p>
+
+<p>Open the Flutter project and locate the <em>global_variables.dart</em> file.</p>
+
+<p>Update the <code>urlPrefix</code> variable with the backend URL:</p>
+<pre><code>
+static var urlPrefix = "YOUR_BACKEND_URL";
+</code></pre>
 
 <h3>Running the Project on Linux</h3>
 <ol>
