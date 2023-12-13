@@ -60,7 +60,7 @@ final String twilioNumber = "YOUR_TWILIO_NUMBER";
 </code></pre>
 
 <h3>Linking to the Backend</h3>
-<p>This project works with https://github.com/mark-judah/voting_dapp_project, clone and run the backend and add the ip and port. The default is 127.0.0.1:3500</p>
+<p>This project works with https://github.com/mark-judah/voting_dapp_project, clone and follow the instructions in the readme. The default is 127.0.0.1:3500</p>
 
 <p>Open the Flutter project and locate the <em>global_variables.dart</em> file.</p>
 
